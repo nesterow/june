@@ -1,0 +1,7 @@
+[deps]
+GeometryTypes = "4d00f742-c7ba-57c2-abde-4428a4b178cb"
+Images = "916415d5-f1e6-5110-898d-aaa5f9f070e0"
+ModernGL = "66fc600b-dfda-50eb-8b99-91cfa97b1301"
+Observables = "510215fc-4207-5dde-b226-833fc4488ee2"
+Plots = "91a5bcdd-55d7-5caf-9e0b-520d859cae80"
+QML = "2db162a6-7e43-52c3-8d84-290c1c42d82a"
