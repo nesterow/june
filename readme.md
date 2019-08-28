@@ -2,7 +2,7 @@ JUNE
 ----
 A starter template for building GUI applications with [Julia](https://julialang.org/) and [QML.jl](https://github.com/barche/QML.jl)
 
-| Currently supported system is MacOS.  
+> Currently supported system is MacOS.  
 
 ## Dependencies
 
@@ -39,6 +39,6 @@ make run
 ## ❤️ Contribute
 Got a build recipe for your system? Please share!
 - Fork repository
-- Fix the problem
-- Push your fix to a separate branch
+- Add bash script to `lib/build`
+- Push your fix into a separate branch
 - Make pull request to the `development` branch
