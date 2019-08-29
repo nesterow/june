@@ -1,7 +1,7 @@
 help:
 	echo "> make build_mac \n> make help"
 
-build_mac:
+mac:
 	ROOT_DIR=$(PWD) bash lib/build/mac.sh
 
 run:
