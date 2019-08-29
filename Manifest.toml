@@ -622,7 +622,7 @@ uuid = "de0858da-6303-5e67-8744-51eddeeeb8d7"
 deps = ["AbstractPlotting", "BinaryProvider", "Colors", "CxxWrap", "FileIO", "FixedPointNumbers", "Libdl", "Makie", "ModernGL", "Observables", "Test"]
 git-tree-sha1 = "74542dbe517c3ef513e5510b4b58fda4ae3994f7"
 repo-rev = "master"
-repo-url = "https://github.com/barche/QML.jl.git"
+repo-url = "https://github.com/barche/QML.jl"
 uuid = "2db162a6-7e43-52c3-8d84-290c1c42d82a"
 version = "0.5.0"
 
