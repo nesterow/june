@@ -31,6 +31,11 @@ julia> include("src/main.jl")
 make run
 ```
 
+## Distributing
+```
+make pack-mac
+```
+
 ## TODO
 - Add build recipe for Debian
 - Add build recipe for Linux ARM32
