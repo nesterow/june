@@ -1,6 +1,6 @@
-import QtQuick 2.3
-import QtQuick.Controls 1.2
-import QtQuick.Layouts 1.2
+import QtQuick 2.7
+import QtQuick.Controls 2.13
+import QtQuick.Layouts 1.11
 import org.julialang 1.0
 
 ApplicationWindow {
@@ -8,6 +8,7 @@ ApplicationWindow {
   width: 800
   height: 600
   visible: true
+  id: window
 
   ColumnLayout {
     id: root
@@ -31,7 +32,7 @@ ApplicationWindow {
 
     RowLayout {
       Layout.fillWidth: true
-      Layout.alignment: parent.AlignCenter
+      Layout.alignment: Qt.AlignCenter
 
       Text {
         text: "Amplitude:"
@@ -40,10 +41,10 @@ ApplicationWindow {
       Slider {
         id: amplitude
         width: 100
-        value: 1.0
-        stepSize: 0.1
-        minimumValue: 0.1
-        maximumValue: 5.0
+        height: 50
+        value: 2
+        from: 1
+        to: 100
         onValueChanged: root.do_plot()
       }
 
@@ -54,10 +55,10 @@ ApplicationWindow {
       Slider {
         id: frequency
         width: 100
-        value: 1.0
-        stepSize: 0.1
-        minimumValue: 1.0
-        maximumValue: 50.0
+        height: 50
+        value: 1
+        from: 1
+        to: 100
         onValueChanged: root.do_plot()
       }
 
