@@ -1,15 +1,24 @@
+echo ""
+if [ -z "$APPNAME" ]
+then
+      export APPNAME=appname.app
+      echo "-- APPNAME variable not found"
+      echo "++ packaging <$APPNAME>"
+else
+      echo "++ packaging <$APPNAME>"
+fi
+
 export JULIA=$(ls /Applications/ | grep Julia | tail -1)
 export JULIA_PACKAGE="/Applications/$JULIA"
 export BUILD_DIR="$ROOT_DIR/dist"
-export LOCAL_PACKAGE="$BUILD_DIR/$JULIA"
+export LOCAL_PACKAGE="$BUILD_DIR/$APPNAME"
 
-echo ""
 echo "++ clean"
 rm -rf $BUILD_DIR
 mkdir -p $BUILD_DIR
 
 echo "++ copy julia package"
-cp -r $JULIA_PACKAGE $BUILD_DIR
+cp -r $JULIA_PACKAGE $BUILD_DIR/$APPNAME
 
 echo "++ copy package contets"
 
@@ -29,13 +38,12 @@ export JULIA_DEPOT_PATH=$LOCAL_PACKAGE/Contents/Resources/julia/local/share/juli
 julia -e "using Pkg; Pkg.add(\"CxxWrap\")"
 export JL_CXX_DIR="$(julia -e 'using CxxWrap; print(dirname(dirname(CxxWrap.libcxxwrap_julia)))')"
 
-
 git clone https://github.com/barche/jlqml $JLPKG/jlqml
 cd $JLPKG/jlqml
 mkdir build && cd build
 cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH="$JL_CXX_DIR;$QT_DIR;$LOCAL_PACKAGE/Contents/Resources/julia" && make
 export JLQML_DIR=$JLPKG/jlqml/build
-julia -e "using Pkg; Pkg.add(PackageSpec(url=\"https://github.com/barche/QML.jl\", rev=\"master\")); Pkg.build()"
+julia -e "ENV[\"JLQML_DIR\"] = \"$JLQML_DIR\"; using Pkg; Pkg.activate(\"$JLPKG\"); Pkg.add(PackageSpec(url=\"https://github.com/barche/QML.jl\", rev=\"master\")); Pkg.build()"
 
 echo "++ modifying startup script"
 export STARTUP=$LOCAL_PACKAGE/Contents/Resources/julia/etc/julia/startup.jl

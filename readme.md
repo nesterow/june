@@ -35,6 +35,10 @@ make run
 ```
 make pack-mac
 ```
+or
+```
+APPNAME=AppName.app make pack-mac
+```
 
 ## TODO
 - Add build recipe for Debian
